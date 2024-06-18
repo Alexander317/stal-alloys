@@ -2,9 +2,9 @@ package net.stal.alloys.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -27,7 +27,7 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
   }
 
   @Override
-  protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+  protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
     RenderSystem.setShader(GameRenderer::getPositionTexProgram);
     RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
     RenderSystem.setShaderTexture(0, ALLOY_SMELTER_SCREEN_TEXTURE);
@@ -35,18 +35,18 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
     int x = (width - backgroundWidth) / 2;
     int y = (height - backgroundHeight) / 2;
 
-    drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-    renderFuelGauge(matrices, x, y);
-    renderProgressionArrow(matrices, x, y);
+    context.drawTexture(ALLOY_SMELTER_SCREEN_TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+    renderFuelGauge(context, x, y);
+    renderProgressionArrow(context, x, y);
   }
 
-  private void renderFuelGauge(MatrixStack matrices, int x, int y) {
+  private void renderFuelGauge(DrawContext context, int x, int y) {
     final int fuelGaugeXPos = 13;
     final int fuelGaugeYPos = 18;
 
     if (handler.hasFuel()) {
-      drawTexture(
-        matrices, 
+      context.drawTexture(
+        ALLOY_SMELTER_SCREEN_TEXTURE, 
         x + fuelGaugeXPos, 
         y + fuelGaugeYPos + 24 - handler.getScaledFuelGauge(), 
         176, 
@@ -57,13 +57,13 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
     }
   }
 
-  private void renderProgressionArrow(MatrixStack matrices, int x, int y) {
+  private void renderProgressionArrow(DrawContext context, int x, int y) {
     final int progressBarXPos = 66;
     final int progressBarYPos = 34;
     
     if (handler.isCrafting()) {
-      drawTexture(
-        matrices, 
+      context.drawTexture(
+        ALLOY_SMELTER_SCREEN_TEXTURE, 
         x + progressBarXPos, 
         y + progressBarYPos, 
         176, 
@@ -75,9 +75,9 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
   }
 
   @Override
-  public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-    renderBackground(matrices);
-    super.render(matrices, mouseX, mouseY, delta);
-    drawMouseoverTooltip(matrices, mouseX, mouseY);
+  public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+    renderBackground(context);
+    super.render(context, mouseX, mouseY, delta);
+    drawMouseoverTooltip(context, mouseX, mouseY);
   }
 }

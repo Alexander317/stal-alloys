@@ -4,9 +4,9 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.stal.alloys.*;
 import net.stal.alloys.item.custom.StalAlloysHoeItem;
@@ -64,51 +64,7 @@ public class StalAlloysItems {
     return Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), item);
   }
 
-  public static void addToItemGroup(ItemGroup group, Item item) {
-    ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-  }
-
-  public static void addItemsToItemGroups() {
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STEEL_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, RAW_NICKEL);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, NICKEL_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, RAW_CHROMIUM);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, CHROMIUM_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, RAW_CARBON);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, CARBON_PLATE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, RAW_ZINC);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, ZINC_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, RAW_TIN);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, TIN_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, COPPER_SWORD);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, COPPER_PICKAXE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, COPPER_AXE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, COPPER_SHOVEL);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, COPPER_HOE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRONZE_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRONZE_SWORD);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRONZE_AXE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRONZE_DAGGER);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRONZE_DIRK);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRASS_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRASS_HELMET);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRASS_CHESTPLATE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRASS_LEGGINGS);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, BRASS_BOOTS);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STEEL_PICKAXE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STEEL_AXE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STEEL_SHOVEL);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STEEL_HOE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STAINLESS_STEEL_INGOT);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STAINLESS_STEEL_HELMET);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STAINLESS_STEEL_CHESTPLATE);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STAINLESS_STEEL_LEGGINGS);
-    addToItemGroup(StalAlloysItemGroup.STAL_ALLOYS, STAINLESS_STEEL_BOOTS);
-  }
-
   public static void registerModItems() {
     StalAlloys.LOGGER.debug("Registering Mod Items for " + StalAlloys.MOD_ID);
-
-    addItemsToItemGroups();
   }
 }

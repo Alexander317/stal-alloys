@@ -29,7 +29,7 @@ public class StalAlloys implements ModInitializer {
 		// Configured Features Must be called first
 		StalAlloysConfiguredFeatures.registerConfiguredFeatures();
 
-		StalAlloysItemGroup.registerItemGroup();
+		StalAlloysItemGroup.registerItemGroups();
 
 		StalAlloysItems.registerModItems();
 

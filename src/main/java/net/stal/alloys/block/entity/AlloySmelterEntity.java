@@ -264,7 +264,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
   }
 
   public void dropExperienceForRecipesUsed(ServerPlayerEntity player) {
-    List<Recipe<?>> list = this.getRecipesUsedAndDropExperience(player.getWorld(), player.getPos());
+    List<Recipe<?>> list = this.getRecipesUsedAndDropExperience(player.getServerWorld(), player.getPos());
     player.unlockRecipes(list);
     this.recipesUsed.clear();
 }
