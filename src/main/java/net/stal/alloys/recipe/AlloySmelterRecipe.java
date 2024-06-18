@@ -35,7 +35,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   }
 
   private static final int mNumberOfInputs = 2;
-  private static final int mNumberOfOutputs = 1;
+  // private static final int mNumberOfOutputs = 1;
 
   public AlloySmelterRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems, int cookingtime, int experience) {
     mID = id;

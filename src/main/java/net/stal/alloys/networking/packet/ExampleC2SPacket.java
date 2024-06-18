@@ -5,11 +5,11 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.stal.alloys.util.ExamplePersistantData;
-import net.stal.alloys.util.IEntityDataSaver;
+// import net.minecraft.text.Style;
+// import net.minecraft.text.Text;
+// import net.minecraft.util.Formatting;
+// import net.stal.alloys.util.ExamplePersistantData;
+// import net.stal.alloys.util.IEntityDataSaver;
 
 public class ExampleC2SPacket {
   public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, 

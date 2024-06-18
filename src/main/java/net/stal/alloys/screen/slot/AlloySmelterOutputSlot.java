@@ -5,7 +5,6 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.stal.alloys.block.entity.AlloySmelterEntity;
 
 public class AlloySmelterOutputSlot extends Slot {

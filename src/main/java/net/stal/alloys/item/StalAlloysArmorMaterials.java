@@ -1,7 +1,6 @@
 package net.stal.alloys.item;
 
 import java.util.function.Supplier;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem.Type;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
