@@ -33,7 +33,7 @@ public class AlloySmelterBlock extends BlockWithEntity {
 
   @Override
   public BlockState getPlacementState(ItemPlacementContext ctx) {
-    return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(LIT, false);
+    return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(LIT, false);
   }
 
   @Override

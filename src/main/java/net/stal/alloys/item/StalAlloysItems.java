@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -47,17 +48,17 @@ public class StalAlloysItems {
   public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ShovelItem(StalAlloysToolMaterials.STEEL_ALLOY, 1.5F, -3.0F, new FabricItemSettings()));
   public static final Item STEEL_HOE = registerItem("steel_hoe", new StalAlloysHoeItem(StalAlloysToolMaterials.STEEL_ALLOY, 2, -1.0F, new FabricItemSettings()));
 
-  public static final Item BRASS_HELMET = registerItem("brass_helmet", new ArmorItem(StalAlloysArmorMaterials.BRASS, EquipmentSlot.HEAD, new FabricItemSettings()));
-  public static final Item BRASS_CHESTPLATE = registerItem("brass_chestplate", new ArmorItem(StalAlloysArmorMaterials.BRASS, EquipmentSlot.CHEST, new FabricItemSettings()));
-  public static final Item BRASS_LEGGINGS = registerItem("brass_leggings", new ArmorItem(StalAlloysArmorMaterials.BRASS, EquipmentSlot.LEGS, new FabricItemSettings()));
-  public static final Item BRASS_BOOTS = registerItem("brass_boots", new ArmorItem(StalAlloysArmorMaterials.BRASS, EquipmentSlot.FEET, new FabricItemSettings()));
+  public static final Item BRASS_HELMET = registerItem("brass_helmet", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.HELMET, new FabricItemSettings()));
+  public static final Item BRASS_CHESTPLATE = registerItem("brass_chestplate", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+  public static final Item BRASS_LEGGINGS = registerItem("brass_leggings", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+  public static final Item BRASS_BOOTS = registerItem("brass_boots", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.BOOTS, new FabricItemSettings()));
   
   public static final Item STAINLESS_STEEL_INGOT = registerItem("stainless_steel_ingot", new Item(new FabricItemSettings()));
 
-  public static final Item STAINLESS_STEEL_HELMET = registerItem("stainless_steel_helmet", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, EquipmentSlot.HEAD, new FabricItemSettings()));
-  public static final Item STAINLESS_STEEL_CHESTPLATE = registerItem("stainless_steel_chestplate", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, EquipmentSlot.CHEST, new FabricItemSettings()));
-  public static final Item STAINLESS_STEEL_LEGGINGS = registerItem("stainless_steel_leggings", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, EquipmentSlot.LEGS, new FabricItemSettings()));
-  public static final Item STAINLESS_STEEL_BOOTS = registerItem("stainless_steel_boots", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, EquipmentSlot.FEET, new FabricItemSettings()));
+  public static final Item STAINLESS_STEEL_HELMET = registerItem("stainless_steel_helmet", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.HELMET, new FabricItemSettings()));
+  public static final Item STAINLESS_STEEL_CHESTPLATE = registerItem("stainless_steel_chestplate", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+  public static final Item STAINLESS_STEEL_LEGGINGS = registerItem("stainless_steel_leggings", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+  public static final Item STAINLESS_STEEL_BOOTS = registerItem("stainless_steel_boots", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
   private static Item registerItem(String name, Item item) {
     return Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), item);

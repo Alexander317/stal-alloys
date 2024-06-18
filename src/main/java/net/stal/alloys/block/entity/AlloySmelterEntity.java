@@ -221,7 +221,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
 
     return recipeFromInventory.isPresent() && 
            canInsertAmountIntoOutputSlot(inventory) && 
-           canInsertItemIntoOutputSlot(inventory, recipeFromInventory.get().getOutput().getItem());
+           canInsertItemIntoOutputSlot(inventory, recipeFromInventory.get().getOutput(null).getItem());
   }
 
   private static void craftItem(AlloySmelterEntity entity) {
@@ -242,7 +242,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
       entity.setStack(
         AlloySmelterInventorySlots.THIRD.value, 
         new ItemStack(
-          recipeFromInventory.get().getOutput().getItem(), 
+          recipeFromInventory.get().getOutput(null).getItem(), 
           entity.getStack(AlloySmelterInventorySlots.THIRD.value).getCount() + 1
         )
       );

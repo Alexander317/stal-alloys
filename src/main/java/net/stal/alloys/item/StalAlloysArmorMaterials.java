@@ -2,6 +2,7 @@ package net.stal.alloys.item;
 
 import java.util.function.Supplier;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem.Type;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -35,14 +36,24 @@ public enum StalAlloysArmorMaterials implements ArmorMaterial {
   }
 
   @Override
-  public int getDurability(EquipmentSlot slot) {
-    return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+  public int getDurability(Type armorItemType) {
+    return BASE_DURABILITY[armorItemType.getEquipmentSlot().getEntitySlotId()] * this.durabilityMultiplier;
   }
 
   @Override
-  public int getProtectionAmount(EquipmentSlot slot) {
-    return this.protectionAmounts[slot.getEntitySlotId()];
+  public int getProtection(Type armorItemType) {
+    return this.protectionAmounts[armorItemType.getEquipmentSlot().getEntitySlotId()];
   }
+
+  // @Override
+  // public int getDurability(EquipmentSlot slot) {
+  //   return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+  // }
+
+  // @Override
+  // public int getProtectionAmount(EquipmentSlot slot) {
+  //   return this.protectionAmounts[slot.getEntitySlotId()];
+  // }
 
   @Override
   public int getEnchantability() {
