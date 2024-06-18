@@ -17,6 +17,9 @@ public class StalAlloysDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(StalAlloysLootTableGenerator::new);
 		pack.addProvider(StalAlloysWorldGenerator::new);
+		pack.addProvider(StalAlloysItemTagProvider::new);
+		pack.addProvider(StalAlloysModelProvider::new);
+		pack.addProvider(StalAlloysRecipeProvider::new);
 	}
 
 	@Override

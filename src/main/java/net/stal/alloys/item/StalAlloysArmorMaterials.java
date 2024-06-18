@@ -44,16 +44,6 @@ public enum StalAlloysArmorMaterials implements ArmorMaterial {
     return this.protectionAmounts[armorItemType.getEquipmentSlot().getEntitySlotId()];
   }
 
-  // @Override
-  // public int getDurability(EquipmentSlot slot) {
-  //   return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
-  // }
-
-  // @Override
-  // public int getProtectionAmount(EquipmentSlot slot) {
-  //   return this.protectionAmounts[slot.getEntitySlotId()];
-  // }
-
   @Override
   public int getEnchantability() {
     return this.enchantability;
