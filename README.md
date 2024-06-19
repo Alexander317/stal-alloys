@@ -137,7 +137,24 @@ Each new metal has a distinct purpose. Some produce tools, others weapons and/or
 ### Stainless Steel Armor (must use Smithing Table)
 
 <details>
-<summary>Click to View</summary>
+<summary>Minecraft 1.20+ Smithing Recipes</summary>
+
+Currently these recipes use the Netherite Upgrade Template. It works exactly like it would with Diamond Armor and Netherite except on Netherite Armor and Stainless Steel Ingots.
+
+![Stainless Steel Helmet](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/stainless_steel_helmet_1.20.png "Stainless Steel Helmet")
+![Stainless Steel Chestplate](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/stainless_steel_chestplate_1.20.png "Stainless Steel Chestplate")
+![Stainless Steel Leggings](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/stainless_steel_leggings_1.20.png "Stainless Steel Leggings")
+![Stainless Steel Boots](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/stainless_steel_boots_1.20.png "Stainless Steel Boots")
+
+You can also add trims to Stainless Steel Armor AND Brass Armor!
+
+![Armor Trim Example 1](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/template_trims_01.PNG "Armor Trim Example on Stainless Steel Chestplate")
+![Armor Trim Example 2](https://github.com/Sephta/stal-alloys/raw/1.20/imgs/template_trims_02.PNG "Armor Trim Example on Brass Chestplate")
+
+</details>
+
+<details>
+<summary>Minecraft 1.19 Smithing Recipes</summary>
 
 ![Stainless Steel Helmet](https://github.com/Sephta/stal-alloys/raw/1.19.2/imgs/stainless_steel_helmet.png "Stainless Steel Helmet")
 ![Stainless Steel Chestplate](https://github.com/Sephta/stal-alloys/raw/1.19.2/imgs/stainless_steel_chestplate.png "Stainless Steel Chestplate")
