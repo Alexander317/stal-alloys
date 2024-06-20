@@ -22,7 +22,7 @@ public class StalAlloysWorldGenerator extends FabricDynamicRegistryProvider {
 
   @Override
   public String getName() {
-    return StalAlloys.MOD_ID;
+    return StalAlloys.MOD_ID + ":" + "world-gen";
   }
   
 }

@@ -2,6 +2,7 @@ package net.stal.alloys.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.stal.alloys.block.StalAlloysBlocks;
 import net.stal.alloys.item.StalAlloysItems;
 
@@ -24,6 +25,8 @@ public class StalAlloysLootTableGenerator extends FabricBlockLootTableProvider {
     addDrop(StalAlloysBlocks.NETHERRACK_NICKEL_ORE, oreDrops(StalAlloysBlocks.NETHERRACK_NICKEL_ORE, StalAlloysItems.RAW_NICKEL));
 
     addDrop(StalAlloysBlocks.CHROMIUM_BLOCK);
+    addDrop(StalAlloysBlocks.CHROMIUM_ORE, oreDrops(StalAlloysBlocks.CHROMIUM_ORE, StalAlloysItems.RAW_CHROMIUM));
+    addDrop(StalAlloysBlocks.DEEPSLATE_CHROMIUM_ORE, oreDrops(StalAlloysBlocks.DEEPSLATE_CHROMIUM_ORE, StalAlloysItems.RAW_CHROMIUM));
     addDrop(StalAlloysBlocks.NETHERRACK_CHROMIUM_ORE, oreDrops(StalAlloysBlocks.NETHERRACK_CHROMIUM_ORE, StalAlloysItems.RAW_CHROMIUM));
 
     addDrop(StalAlloysBlocks.ZINC_BLOCK);
@@ -33,6 +36,9 @@ public class StalAlloysLootTableGenerator extends FabricBlockLootTableProvider {
     addDrop(StalAlloysBlocks.TIN_ORE, oreDrops(StalAlloysBlocks.TIN_ORE, StalAlloysItems.RAW_TIN));
     addDrop(StalAlloysBlocks.DEEPSLATE_TIN_ORE, oreDrops(StalAlloysBlocks.DEEPSLATE_TIN_ORE, StalAlloysItems.RAW_TIN));
 
-    addDrop(StalAlloysBlocks.DEEPSLATE_CARBON_ORE, oreDrops(StalAlloysBlocks.DEEPSLATE_CARBON_ORE, StalAlloysItems.RAW_CARBON));
+    addDrop(StalAlloysBlocks.CARBON_ORE, drops(StalAlloysItems.RAW_CARBON, UniformLootNumberProvider.create(1.0F, 4.0F)));
+    addDrop(StalAlloysBlocks.DEEPSLATE_CARBON_ORE, drops(StalAlloysItems.RAW_CARBON, UniformLootNumberProvider.create(1.0F, 4.0F)));
+
+    addDrop(StalAlloysBlocks.STEEL_BLOCK);
   }
 }
