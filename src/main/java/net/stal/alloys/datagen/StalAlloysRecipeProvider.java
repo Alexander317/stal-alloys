@@ -18,8 +18,10 @@ import net.stal.alloys.item.StalAlloysItems;
 
 public class StalAlloysRecipeProvider extends FabricRecipeProvider{
 
-  public static final List<ItemConvertible> NICKEL_SMELTABLES = List.of(StalAlloysItems.RAW_NICKEL, StalAlloysBlocks.NICKEL_ORE, StalAlloysBlocks.DEEPSLATE_NICKEL_ORE, StalAlloysBlocks.NETHERRACK_NICKEL_ORE);
   public static final List<ItemConvertible> CHROMIUM_SMELTABLES = List.of(StalAlloysItems.RAW_CHROMIUM, StalAlloysBlocks.CHROMIUM_ORE, StalAlloysBlocks.DEEPSLATE_CHROMIUM_ORE, StalAlloysBlocks.NETHERRACK_CHROMIUM_ORE);
+  public static final List<ItemConvertible> NICKEL_SMELTABLES = List.of(StalAlloysItems.RAW_NICKEL, StalAlloysBlocks.NICKEL_ORE, StalAlloysBlocks.DEEPSLATE_NICKEL_ORE, StalAlloysBlocks.NETHERRACK_NICKEL_ORE);
+  public static final List<ItemConvertible> TIN_SMELTABLES = List.of(StalAlloysItems.RAW_TIN, StalAlloysBlocks.TIN_ORE, StalAlloysBlocks.DEEPSLATE_TIN_ORE);
+  public static final List<ItemConvertible> ZINC_SMELTABLES = List.of(StalAlloysItems.RAW_ZINC, StalAlloysBlocks.ZINC_ORE, StalAlloysBlocks.DEEPSLATE_ZINC_ORE);
 
   public StalAlloysRecipeProvider(FabricDataOutput output) {
     super(output);
@@ -27,15 +29,30 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
 
   @Override
   public void generate(Consumer<RecipeJsonProvider> exporter) {
-    offerSmelting(exporter, NICKEL_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.NICKEL_INGOT, 1.0F, 200, "nickel_ingot");
+    // Smelting recipes
     offerSmelting(exporter, CHROMIUM_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.CHROMIUM_INGOT, 1.0F, 360, "chromium_ingot");
-    offerBlasting(exporter, NICKEL_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.NICKEL_INGOT, 1.0F, 100, "nickel_ingot");
+    offerSmelting(exporter, NICKEL_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.NICKEL_INGOT, 1.0F, 200, "nickel_ingot");
+    offerSmelting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.TIN_INGOT, 1.0F, 140, "tin_ingot");
+    offerSmelting(exporter, ZINC_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.ZINC_INGOT, 1.0F, 180, "zinc_ingot");
+
+    // Blasting recipes
     offerBlasting(exporter, CHROMIUM_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.CHROMIUM_INGOT, 1.0F, 200, "chromium_ingot");
+    offerBlasting(exporter, NICKEL_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.NICKEL_INGOT, 1.0F, 160, "nickel_ingot");
+    offerBlasting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.TIN_INGOT, 1.0F, 100, "tin_ingot");
+    offerBlasting(exporter, ZINC_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.ZINC_INGOT, 1.0F, 100, "zinc_ingot");
 
-    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysBlocks.STEEL_BLOCK, RecipeCategory.DECORATIONS, StalAlloysItems.STEEL_INGOT);
-    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysBlocks.NICKEL_BLOCK, RecipeCategory.DECORATIONS, StalAlloysItems.NICKEL_INGOT);
-    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysBlocks.CHROMIUM_BLOCK, RecipeCategory.DECORATIONS, StalAlloysItems.CHROMIUM_INGOT);
+    // Reversible Block to Ingot conversion recipes
+    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysItems.CHROMIUM_INGOT, RecipeCategory.DECORATIONS, StalAlloysBlocks.CHROMIUM_BLOCK);
+    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysItems.NICKEL_INGOT, RecipeCategory.DECORATIONS, StalAlloysBlocks.NICKEL_BLOCK);
+    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysItems.ZINC_INGOT, RecipeCategory.DECORATIONS, StalAlloysBlocks.ZINC_BLOCK);
+    offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, StalAlloysItems.STEEL_INGOT, RecipeCategory.DECORATIONS, StalAlloysBlocks.STEEL_BLOCK);
 
+    // Stone cutting recipes
+    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL, StalAlloysBlocks.NICKEL_BLOCK, 4);
+    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL_SLAB, StalAlloysBlocks.NICKEL_BLOCK, 8);
+    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL_STAIRS, StalAlloysBlocks.NICKEL_BLOCK, 4);
+
+    // Shaped and Shapeless recipes
     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, StalAlloysBlocks.ALLOY_SMELTER, 1)
       .pattern("###")
       .pattern("#F#")
@@ -165,11 +182,41 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
       .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_sword"));
 
-    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL, StalAlloysBlocks.NICKEL_BLOCK, 4);
-    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL_SLAB, StalAlloysBlocks.NICKEL_BLOCK, 8);
-    offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, StalAlloysBlocks.CUT_NICKEL_STAIRS, StalAlloysBlocks.NICKEL_BLOCK, 4);
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_AXE, 1)
+      .pattern("## ")
+      .pattern("#S ")
+      .pattern(" S ")
+      .input('#', StalAlloysItems.STEEL_INGOT)
+      .input('S', Items.STICK)
+      .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
+      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_axe"));
 
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_HOE, 1)
+      .pattern("## ")
+      .pattern(" S ")
+      .pattern(" S ")
+      .input('#', StalAlloysItems.STEEL_INGOT)
+      .input('S', Items.STICK)
+      .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
+      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_hoe"));
     
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_PICKAXE, 1)
+      .pattern("###")
+      .pattern(" S ")
+      .pattern(" S ")
+      .input('#', StalAlloysItems.STEEL_INGOT)
+      .input('S', Items.STICK)
+      .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
+      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_pickaxe"));
+    
+    ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_SHOVEL, 1)
+      .pattern(" # ")
+      .pattern(" S ")
+      .pattern(" S ")
+      .input('#', StalAlloysItems.STEEL_INGOT)
+      .input('S', Items.STICK)
+      .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
+      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_shovel"));
   }
   
 }

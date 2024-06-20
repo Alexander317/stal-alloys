@@ -34,7 +34,7 @@ public class StalAlloysPlacedFeatures {
     register(context, NICKEL_ORE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NICKEL_ORE_SMALL_KEY), 
               modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, NICKEL_ORE_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NICKEL_ORE_LARGE_KEY), 
-              modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
+              modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.TIN_ORE_KEY), 
               modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, CHROMIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.CHROMIUM_ORE_KEY), 
