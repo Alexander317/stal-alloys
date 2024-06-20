@@ -64,7 +64,7 @@ public class StalAlloysItemGroup {
 
         // Blocks
         entries.add(StalAlloysBlocks.ALLOY_SMELTER);
-        entries.add(StalAlloysBlocks.CARBON_ORE);
+        // entries.add(StalAlloysBlocks.CARBON_ORE);
         entries.add(StalAlloysBlocks.CHROMIUM_BLOCK);
         entries.add(StalAlloysBlocks.CHROMIUM_ORE);
         entries.add(StalAlloysBlocks.CUT_NICKEL);
@@ -135,7 +135,7 @@ public class StalAlloysItemGroup {
     });
 
     ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
-      entries.add(StalAlloysBlocks.CARBON_ORE);
+      // entries.add(StalAlloysBlocks.CARBON_ORE);
       entries.add(StalAlloysBlocks.DEEPSLATE_CARBON_ORE);
       entries.add(StalAlloysBlocks.CHROMIUM_ORE);
       entries.add(StalAlloysBlocks.DEEPSLATE_CHROMIUM_ORE);
