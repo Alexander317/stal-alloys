@@ -32,19 +32,19 @@ public class StalAlloysPlacedFeatures {
     register(context, ZINC_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.ZINC_ORE_KEY), 
               modifiersWithCount(6, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.fixed(30))));
     register(context, NICKEL_ORE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NICKEL_ORE_SMALL_KEY), 
-              modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
+              modifiersWithCount(3, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, NICKEL_ORE_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NICKEL_ORE_LARGE_KEY), 
-              modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
+              modifiersWithCount(2, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, TIN_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.TIN_ORE_KEY), 
               modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
     register(context, CHROMIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.CHROMIUM_ORE_KEY), 
-              modifiersWithCount(100, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(480))));
+              modifiersWithCount(1, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(480))));
     register(context, DEEPSLATE_CARBON_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.DEEPSLATE_CARBON_ORE_KEY), 
               modifiersWithCount(3, HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.fixed(0))));
 
     // Nether
     register(context, NETHERRACK_NICKEL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NETHERRACK_NICKEL_ORE_KEY), 
-              modifiersWithCount(5, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.fixed(80))));
+              modifiersWithCount(3, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.fixed(80))));
     register(context, NETHERRACK_CHROMIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(StalAlloysConfiguredFeatures.NETHERRACK_CHROMIUM_ORE_KEY), 
               modifiersWithCount(3, HeightRangePlacementModifier.trapezoid(YOffset.fixed(8), YOffset.fixed(24))));
   }
