@@ -1,11 +1,10 @@
 package net.stal.alloys.datagen;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -28,7 +27,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
   }
 
   @Override
-  public void generate(Consumer<RecipeJsonProvider> exporter) {
+  public void generate(RecipeExporter exporter) {
     // Smelting recipes
     offerSmelting(exporter, CHROMIUM_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.CHROMIUM_INGOT, 1.0F, 360, "chromium_ingot");
     offerSmelting(exporter, NICKEL_SMELTABLES, RecipeCategory.MISC, StalAlloysItems.NICKEL_INGOT, 1.0F, 200, "nickel_ingot");

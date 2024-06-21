@@ -1,7 +1,6 @@
 package net.stal.alloys.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
@@ -76,7 +75,7 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
 
   @Override
   public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-    renderBackground(context);
+    renderBackground(context, mouseX, mouseY, delta);
     super.render(context, mouseX, mouseY, delta);
     drawMouseoverTooltip(context, mouseX, mouseY);
   }

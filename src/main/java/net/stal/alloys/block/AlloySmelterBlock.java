@@ -117,6 +117,6 @@ public class AlloySmelterBlock extends BlockWithEntity {
   @Override
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
       BlockEntityType<T> type) {
-    return checkType(type, StalAlloysBlockEntities.ALLOY_SMELTER_ENTITY, AlloySmelterEntity::tick);
+    return BlockWithEntity.validateTicker(type, StalAlloysBlockEntities.ALLOY_SMELTER_ENTITY, AlloySmelterEntity::tick);
   }
 }

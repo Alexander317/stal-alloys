@@ -1,26 +1,26 @@
 package net.stal.alloys.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.recipe.*;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.dynamic.Codecs;
+
+import java.util.List;
 
 public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
 
-  private final Identifier mID;
   private final ItemStack mOutput;
   private final int mCookingTime;
   private final int mExperience;
-  private final DefaultedList<Ingredient> mRecipeItems;
+  private final List<Ingredient> mRecipeItems;
 
   private enum AlloySmelterRecipeAttributes {
     INGREDIENTS("ingredients"),
@@ -37,8 +37,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   private static final int mNumberOfInputs = 2;
   // private static final int mNumberOfOutputs = 1;
 
-  public AlloySmelterRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems, int cookingtime, int experience) {
-    mID = id;
+  public AlloySmelterRecipe(ItemStack output, List<Ingredient> recipeItems, int cookingtime, int experience) {
     mOutput = output;
     mRecipeItems = recipeItems;
     mCookingTime = cookingtime;
@@ -70,7 +69,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   }
 
   @Override
-  public ItemStack getOutput(DynamicRegistryManager dynamicRegistryManager) {
+  public ItemStack getResult(DynamicRegistryManager dynamicRegistryManager) {
     return mOutput.copy();
   }
 
@@ -80,11 +79,6 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
 
   public int getExperience() {
     return mExperience;
-  }
-
-  @Override
-  public Identifier getId() {
-    return mID;
   }
 
   @Override
@@ -107,23 +101,21 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
     public static final Serializer INSTANCE = new Serializer();
     public static final String ID = "alloy_smelter"; // name given in the json file
 
-    @Override
-    public AlloySmelterRecipe read(Identifier id, JsonObject json) {
-      DefaultedList<Ingredient> inputs = DefaultedList.ofSize(mNumberOfInputs, Ingredient.EMPTY);
-      ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, AlloySmelterRecipeAttributes.RESULT.value));
-      JsonArray ingredients = JsonHelper.getArray(json, AlloySmelterRecipeAttributes.INGREDIENTS.value);
-      int cookingtime = JsonHelper.getInt(json, AlloySmelterRecipeAttributes.COOKINGTIME.value);
-      int experience = JsonHelper.getInt(json, AlloySmelterRecipeAttributes.EXPERIENCE.value);
+    public static final Codec<AlloySmelterRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
+      RecipeCodecs.CRAFTING_RESULT.fieldOf(AlloySmelterRecipeAttributes.RESULT.value).forGetter(r -> r.mOutput),
+      validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, mNumberOfInputs).fieldOf(AlloySmelterRecipeAttributes.INGREDIENTS.value).forGetter(AlloySmelterRecipe::getIngredients),
+      Codecs.NONNEGATIVE_INT.fieldOf(AlloySmelterRecipeAttributes.COOKINGTIME.value).forGetter(AlloySmelterRecipe::getCookingTime),
+      Codecs.NONNEGATIVE_INT.fieldOf(AlloySmelterRecipeAttributes.EXPERIENCE.value).forGetter(AlloySmelterRecipe::getExperience)
+    ).apply(in, AlloySmelterRecipe::new));
 
-      for (int i = 0; i < inputs.size(); i++) {
-        inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-      }
-
-      return new AlloySmelterRecipe(id, output, inputs, cookingtime, experience);
+    private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
+      return Codecs.validate(Codecs.validate(
+              delegate.listOf(), list -> list.size() > max ? DataResult.error(() -> "Recipe has too many ingredients!") : DataResult.success(list)
+      ), list -> list.isEmpty() ? DataResult.error(() -> "Recipe has no ingredients!") : DataResult.success(list));
     }
 
     @Override
-    public AlloySmelterRecipe read(Identifier id, PacketByteBuf buf) {
+    public AlloySmelterRecipe read(PacketByteBuf buf) {
       DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
       int cookingtime = buf.readInt();
       int experience = buf.readInt();
@@ -132,7 +124,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
         inputs.set(i, Ingredient.fromPacket(buf));
       }
 
-      return new AlloySmelterRecipe(id, /* output --> */ buf.readItemStack(), inputs, cookingtime, experience);
+      return new AlloySmelterRecipe(/* output --> */ buf.readItemStack(), inputs, cookingtime, experience);
     }
 
     @Override
@@ -143,12 +135,15 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
         ingredient.write(buf);
       }
 
-      buf.writeItemStack(recipe.getOutput(null));
+      buf.writeItemStack(recipe.getResult(null));
 
       buf.writeInt(recipe.getCookingTime());
       buf.writeInt(recipe.getExperience());
     }
 
-    
+    @Override
+    public Codec<AlloySmelterRecipe> codec() {
+      return CODEC;
+    }
   }
 }

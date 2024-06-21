@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 import net.stal.alloys.item.StalAlloysItemGroup;
 // import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.stal.alloys.item.StalAlloysItems;
-import net.stal.alloys.networking.StalAlloysMessages;
 import net.stal.alloys.recipe.StalAlloysRecipes;
 import net.stal.alloys.screen.StalAlloysScreenHandlers;
 import net.stal.alloys.world.StalAlloysConfiguredFeatures;
@@ -42,8 +41,6 @@ public class StalAlloys implements ModInitializer {
 		StalAlloysScreenHandlers.registerModScreenHandlers();
 
 		StalAlloysRecipes.registerRecipes();
-
-		StalAlloysMessages.registerC2SPackets();
 
 		// Other stuff...
 

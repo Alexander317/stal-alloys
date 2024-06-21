@@ -22,7 +22,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -151,12 +151,12 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
     }
   }
 
-  public void setLastRecipe(@Nullable Recipe<?> recipe) {
+  public void setLastRecipe(@Nullable RecipeEntry<AlloySmelterRecipe> recipe) {
     if (recipe != null) {
-        Identifier identifier = recipe.getId();
+        Identifier identifier = recipe.id();
         this.recipesUsed.addTo(identifier, 1);
     }
-}
+  }
 
   public static <E extends BlockEntity> void tick(World world, BlockPos blockPos, BlockState blockState, AlloySmelterEntity entity) {
     if (world.isClient()) return;
@@ -211,17 +211,20 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
       inventory.setStack(i, entity.getStack(i));
     }
     
-    Optional<AlloySmelterRecipe> recipeFromInventory = entity.getWorld()
+    Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
                                                 .getRecipeManager()
                                                 .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
     
-    if (recipeFromInventory.isPresent()) {
-      entity.mMaxProgress = recipeFromInventory.get().getCookingTime();
-    }
+    if (recipeFromInventoryOpt.isPresent()) {
+      AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();
+      
+      entity.mMaxProgress = recipe.getCookingTime();
 
-    return recipeFromInventory.isPresent() && 
-           canInsertAmountIntoOutputSlot(inventory) && 
-           canInsertItemIntoOutputSlot(inventory, recipeFromInventory.get().getOutput(null).getItem());
+      return canInsertAmountIntoOutputSlot(inventory) &&
+             canInsertItemIntoOutputSlot(inventory, recipe.getResult(null).getItem());
+    }
+    
+    return false;
   }
 
   private static void craftItem(AlloySmelterEntity entity) {
@@ -231,23 +234,25 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
       inventory.setStack(i, entity.getStack(i));
     }
 
-    Optional<AlloySmelterRecipe> recipeFromInventory = entity.getWorld()
+    Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
                                                 .getRecipeManager()
                                                 .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
 
-    if (hasRecipe(entity)) {
+    if (recipeFromInventoryOpt.isPresent() && hasRecipe(entity)) {
+      AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();
+
       entity.removeStack(AlloySmelterInventorySlots.FIRST.value, 1);
       entity.removeStack(AlloySmelterInventorySlots.SECOND.value, 1);
 
       entity.setStack(
         AlloySmelterInventorySlots.THIRD.value, 
         new ItemStack(
-          recipeFromInventory.get().getOutput(null).getItem(), 
+          recipe.getResult(null).getItem(), 
           entity.getStack(AlloySmelterInventorySlots.THIRD.value).getCount() + 1
         )
       );
 
-      entity.setLastRecipe(recipeFromInventory.get());
+      entity.setLastRecipe(recipeFromInventoryOpt.get());
 
       entity.resetProgress();
     }
@@ -264,17 +269,18 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
   }
 
   public void dropExperienceForRecipesUsed(ServerPlayerEntity player) {
-    List<Recipe<?>> list = this.getRecipesUsedAndDropExperience(player.getServerWorld(), player.getPos());
-    player.unlockRecipes(list);
+    List<RecipeEntry<?>> recipes = this.getRecipesUsedAndDropExperience(player.getServerWorld(), player.getPos());
+    player.unlockRecipes(recipes);
     this.recipesUsed.clear();
 }
 
-public List<Recipe<?>> getRecipesUsedAndDropExperience(ServerWorld world, Vec3d pos) {
-    ArrayList<Recipe<?>> list = Lists.newArrayList();
+@SuppressWarnings("unchecked")
+public List<RecipeEntry<?>> getRecipesUsedAndDropExperience(ServerWorld world, Vec3d pos) {
+    ArrayList<RecipeEntry<?>> list = Lists.newArrayList();
     for (Object2IntMap.Entry<Identifier> entry : this.recipesUsed.object2IntEntrySet()) {
         world.getRecipeManager().get((Identifier)entry.getKey()).ifPresent(recipe -> {
-            list.add((Recipe<?>)recipe);
-            AlloySmelterEntity.dropExperience(world, pos, entry.getIntValue(), ((AlloySmelterRecipe)recipe).getExperience());
+            list.add((RecipeEntry<?>)recipe);
+            AlloySmelterEntity.dropExperience(world, pos, entry.getIntValue(), ((RecipeEntry<AlloySmelterRecipe>)recipe).value().getExperience());
         });
     }
     return list;
