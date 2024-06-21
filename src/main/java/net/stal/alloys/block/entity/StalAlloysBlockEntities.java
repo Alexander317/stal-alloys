@@ -1,6 +1,5 @@
 package net.stal.alloys.block.entity;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,7 +19,7 @@ public class StalAlloysBlockEntities {
         StalAlloys.MOD_ID, 
         "alloy_smelter"
       ), 
-      FabricBlockEntityTypeBuilder.create(AlloySmelterEntity::new, StalAlloysBlocks.ALLOY_SMELTER).build(null)
+      BlockEntityType.Builder.create(AlloySmelterEntity::new, StalAlloysBlocks.ALLOY_SMELTER).build(null)
     );
   }
 }
