@@ -1,5 +1,7 @@
 package net.stal.alloys.block;
 
+import com.mojang.serialization.MapCodec;
+
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -118,5 +120,11 @@ public class AlloySmelterBlock extends BlockWithEntity {
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state,
       BlockEntityType<T> type) {
     return BlockWithEntity.validateTicker(type, StalAlloysBlockEntities.ALLOY_SMELTER_ENTITY, AlloySmelterEntity::tick);
+  }
+
+  @Override
+  protected MapCodec<? extends BlockWithEntity> getCodec() {
+    // ! Currently unused but will need updating in the future
+    throw new UnsupportedOperationException("Unimplemented method 'getCodec'");
   }
 }

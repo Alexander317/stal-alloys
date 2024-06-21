@@ -31,36 +31,36 @@ public class StalAlloysBlocks {
   public static final Block NICKEL_ORE = registerBlock(
     "nickel_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(3, 8),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(3, 8)
+        .requiresTool()
     )
   );
 
   public static final Block DEEPSLATE_NICKEL_ORE = registerBlock(
     "deepslate_nickel_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
   public static final Block NETHERRACK_NICKEL_ORE = registerBlock(
     "netherrack_nickel_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.NETHERRACK)
         .strength(0.4F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
@@ -113,36 +113,36 @@ public class StalAlloysBlocks {
   public static final Block CHROMIUM_ORE = registerBlock(
     "chromium_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(3, 8),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(3, 8)
+        .requiresTool()
     )
   );
 
   public static final Block DEEPSLATE_CHROMIUM_ORE = registerBlock(
     "deepslate_chromium_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
   public static final Block NETHERRACK_CHROMIUM_ORE = registerBlock(
     "netherrack_chromium_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.NETHERRACK)
         .strength(0.4F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
@@ -161,24 +161,24 @@ public class StalAlloysBlocks {
   public static final Block CARBON_ORE = registerBlock(
     "carbon_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(3, 8),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(3, 8)
+        .requiresTool()
     )
   );
 
   public static final Block DEEPSLATE_CARBON_ORE = registerBlock(
     "deepslate_carbon_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
@@ -186,24 +186,24 @@ public class StalAlloysBlocks {
   public static final Block ZINC_ORE = registerBlock(
     "zinc_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(3, 8),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(3, 8)
+        .requiresTool()
     )
   );
 
   public static final Block DEEPSLATE_ZINC_ORE = registerBlock(
     "deepslate_zinc_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 
@@ -222,24 +222,24 @@ public class StalAlloysBlocks {
   public static final Block TIN_ORE = registerBlock(
     "tin_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(3, 8),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(3, 8)
+        .requiresTool()
     )
   );
 
   public static final Block DEEPSLATE_TIN_ORE = registerBlock(
     "deepslate_tin_ore", 
     new ExperienceDroppingBlock(
+      UniformIntProvider.create(4, 9),
       FabricBlockSettings
         .copyOf(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
-        .requiresTool(),
-      UniformIntProvider.create(4, 9)
+        .requiresTool()
     )
   );
 

@@ -45,7 +45,7 @@ public class AlloySmelterOutputSlot extends Slot {
 
   @Override
   protected void onCrafted(ItemStack stack) {
-    stack.onCraft(this.player.getWorld(), this.player, this.amount);
+    stack.onCraftByPlayer(this.player.getWorld(), this.player, this.amount);
     if (this.player instanceof ServerPlayerEntity && this.inventory instanceof AlloySmelterEntity) {
       ((AlloySmelterEntity)this.inventory).dropExperienceForRecipesUsed((ServerPlayerEntity)this.player);
     }
