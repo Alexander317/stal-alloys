@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:chromium_block"
-            ]
+            "items": "stal-alloys:chromium_block"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_chromium_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chromium_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:chromium_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

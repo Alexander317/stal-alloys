@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:deepslate"
-            ]
+            "items": "minecraft:deepslate"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:furnace"
-            ]
+            "items": "minecraft:furnace"
           }
         ]
       },
@@ -34,15 +30,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_deepslate",
-      "has_furnace",
-      "has_the_recipe"
+      "has_furnace"
     ]
   ],
   "rewards": {
     "recipes": [
       "stal-alloys:alloy_smelter"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

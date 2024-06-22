@@ -12,7 +12,7 @@
     "CCC"
   ],
   "result": {
-    "item": "stal-alloys:carbon_plate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "stal-alloys:carbon_plate"
+  }
 }

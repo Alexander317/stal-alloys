@@ -23,6 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -124,12 +125,12 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
   }
 
   @Override
-  protected void writeNbt(NbtCompound nbt) {
-    super.writeNbt(nbt);
+  protected void writeNbt(NbtCompound nbt, WrapperLookup registryLookup) {
+    super.writeNbt(nbt, registryLookup);
 
     nbt.putInt(mProgressPropertyNBTKey, mProgress);
     nbt.putInt(mFuelPropertyNBTKey, mFuel);
-    Inventories.writeNbt(nbt, mInventory);
+    Inventories.writeNbt(nbt, mInventory, registryLookup);
 
     NbtCompound nbtCompound = new NbtCompound();
     this.recipesUsed.forEach((identifier, count) -> nbtCompound.putInt(identifier.toString(), (int)count));
@@ -137,10 +138,10 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
   }
 
   @Override
-  public void readNbt(NbtCompound nbt) {
-    super.readNbt(nbt);
+  public void readNbt(NbtCompound nbt, WrapperLookup registryLookup) {
+    super.readNbt(nbt, registryLookup);
 
-    Inventories.readNbt(nbt, mInventory);
+    Inventories.readNbt(nbt, mInventory, registryLookup);
 
     mProgress = nbt.getInt(mProgressPropertyNBTKey);
     mFuel = nbt.getInt(mFuelPropertyNBTKey);

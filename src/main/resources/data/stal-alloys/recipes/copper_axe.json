@@ -15,7 +15,7 @@
     " S "
   ],
   "result": {
-    "item": "stal-alloys:copper_axe"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "stal-alloys:copper_axe"
+  }
 }

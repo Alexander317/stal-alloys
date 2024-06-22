@@ -17,7 +17,6 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -82,7 +81,6 @@ public class AlloySmelterBlock extends BlockWithEntity {
     return BlockRenderType.MODEL;
   }
 
-  @SuppressWarnings("deprecation")
   @Override
   public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
     if (state.getBlock() != newState.getBlock()) {
@@ -97,7 +95,7 @@ public class AlloySmelterBlock extends BlockWithEntity {
   }
 
   @Override
-  public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
+  public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
       BlockHitResult hit) {
 
         if (!world.isClient()) {

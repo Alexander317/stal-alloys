@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:steel_ingot"
-            ]
+            "items": "stal-alloys:steel_ingot"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_steel_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_steel_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
       "stal-alloys:steel_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

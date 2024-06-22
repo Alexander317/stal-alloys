@@ -15,7 +15,7 @@
     " S "
   ],
   "result": {
-    "item": "stal-alloys:steel_shovel"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "stal-alloys:steel_shovel"
+  }
 }

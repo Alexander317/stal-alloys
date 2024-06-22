@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:raw_chromium"
-            ]
+            "items": "stal-alloys:raw_chromium"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_raw_chromium",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_chromium"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:chromium_ingot_from_smelting_raw_chromium"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

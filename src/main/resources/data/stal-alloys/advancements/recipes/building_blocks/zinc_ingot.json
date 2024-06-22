@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:zinc_block"
-            ]
+            "items": "stal-alloys:zinc_block"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_zinc_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_zinc_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:zinc_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -2,12 +2,14 @@ package net.stal.alloys.recipe;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.recipe.*;
 import net.minecraft.world.World;
 import net.minecraft.util.collection.DefaultedList;
@@ -59,7 +61,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   }
 
   @Override
-  public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager dynamicRegistryManager) {
+  public ItemStack craft(SimpleInventory inventory, WrapperLookup lookup) {
     return mOutput;
   }
 
@@ -69,7 +71,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   }
 
   @Override
-  public ItemStack getResult(DynamicRegistryManager dynamicRegistryManager) {
+  public ItemStack getResult(WrapperLookup registriesLookup) {
     return mOutput.copy();
   }
 
@@ -101,49 +103,67 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
     public static final Serializer INSTANCE = new Serializer();
     public static final String ID = "alloy_smelter"; // name given in the json file
 
-    public static final Codec<AlloySmelterRecipe> CODEC = RecordCodecBuilder.create(in -> in.group(
-      ItemStack.RECIPE_RESULT_CODEC.fieldOf(AlloySmelterRecipeAttributes.RESULT.value).forGetter(r -> r.mOutput),
+    public static final MapCodec<AlloySmelterRecipe> CODEC = RecordCodecBuilder.mapCodec(in -> in.group(
+      ItemStack.VALIDATED_CODEC.fieldOf(AlloySmelterRecipeAttributes.RESULT.value).forGetter(r -> r.mOutput),
       validateAmount(Ingredient.DISALLOW_EMPTY_CODEC, mNumberOfInputs).fieldOf(AlloySmelterRecipeAttributes.INGREDIENTS.value).forGetter(AlloySmelterRecipe::getIngredients),
       Codecs.NONNEGATIVE_INT.fieldOf(AlloySmelterRecipeAttributes.COOKINGTIME.value).forGetter(AlloySmelterRecipe::getCookingTime),
       Codecs.NONNEGATIVE_INT.fieldOf(AlloySmelterRecipeAttributes.EXPERIENCE.value).forGetter(AlloySmelterRecipe::getExperience)
     ).apply(in, AlloySmelterRecipe::new));
 
     private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
-      return Codecs.validate(Codecs.validate(
-              delegate.listOf(), list -> list.size() > max ? DataResult.error(() -> "Recipe has too many ingredients!") : DataResult.success(list)
-      ), list -> list.isEmpty() ? DataResult.error(() -> "Recipe has no ingredients!") : DataResult.success(list));
+      return Ingredient.DISALLOW_EMPTY_CODEC.listOf().flatXmap((ingredients) -> {
+        Ingredient[] copyOfIngredients = (Ingredient[])ingredients.stream().filter((ingredient) -> {
+           return !ingredient.isEmpty();
+        }).toArray((i) -> {
+           return new Ingredient[i];
+        });
+        if (copyOfIngredients.length == 0) {
+           return DataResult.error(() -> {
+              return "No ingredients for shapeless recipe";
+           });
+        } else {
+           return copyOfIngredients.length > max ? DataResult.error(() -> {
+              return "Too many ingredients for shapeless recipe";
+           }) : DataResult.success(DefaultedList.copyOf(Ingredient.EMPTY, copyOfIngredients));
+        }
+     }, DataResult::success);
     }
 
-    @Override
-    public AlloySmelterRecipe read(PacketByteBuf buf) {
+    public static final PacketCodec<RegistryByteBuf, AlloySmelterRecipe> PACKET_CODEC = PacketCodec.ofStatic(Serializer::write, Serializer::read);
+
+    private static AlloySmelterRecipe read(RegistryByteBuf buf) {
       DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
       int cookingtime = buf.readInt();
       int experience = buf.readInt();
 
       for (int i = 0; i < inputs.size(); i++) {
-        inputs.set(i, Ingredient.fromPacket(buf));
+        inputs.set(i, Ingredient.PACKET_CODEC.decode(buf));
       }
 
-      return new AlloySmelterRecipe(/* output --> */ buf.readItemStack(), inputs, cookingtime, experience);
+      return new AlloySmelterRecipe(/* output --> */ ItemStack.PACKET_CODEC.decode(buf), inputs, cookingtime, experience);
     }
 
-    @Override
-    public void write(PacketByteBuf buf, AlloySmelterRecipe recipe) {
+    private static void write(RegistryByteBuf buf, AlloySmelterRecipe recipe) {
       buf.writeInt(recipe.getIngredients().size());
 
       for (Ingredient ingredient : recipe.getIngredients()) {
-        ingredient.write(buf);
+        Ingredient.PACKET_CODEC.encode(buf, ingredient);
       }
 
-      buf.writeItemStack(recipe.getResult(null));
+      ItemStack.PACKET_CODEC.encode(buf, recipe.getResult(null));
 
       buf.writeInt(recipe.getCookingTime());
       buf.writeInt(recipe.getExperience());
     }
 
     @Override
-    public Codec<AlloySmelterRecipe> codec() {
+    public MapCodec<AlloySmelterRecipe> codec() {
       return CODEC;
+    }
+
+    @Override
+    public PacketCodec<RegistryByteBuf, AlloySmelterRecipe> packetCodec() {
+      return PACKET_CODEC;
     }
   }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:netherrack_chromium_ore"
-            ]
+            "items": "stal-alloys:netherrack_chromium_ore"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_netherrack_chromium_ore",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_netherrack_chromium_ore"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:chromium_ingot_from_smelting_netherrack_chromium_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

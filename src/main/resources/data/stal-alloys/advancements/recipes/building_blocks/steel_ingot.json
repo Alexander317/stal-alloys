@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:steel_block"
-            ]
+            "items": "stal-alloys:steel_block"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_steel_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_steel_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:steel_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

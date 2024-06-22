@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:nickel_block"
-            ]
+            "items": "stal-alloys:nickel_block"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_nickel_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_nickel_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cut_nickel_slab_from_nickel_block_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:raw_zinc"
-            ]
+            "items": "stal-alloys:raw_zinc"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_raw_zinc",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_zinc"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:zinc_ingot_from_blasting_raw_zinc"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

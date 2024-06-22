@@ -15,7 +15,7 @@
     "S  "
   ],
   "result": {
-    "item": "stal-alloys:bronze_dirk"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "stal-alloys:bronze_dirk"
+  }
 }

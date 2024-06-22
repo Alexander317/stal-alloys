@@ -11,7 +11,7 @@ public class StalAlloysHoeItem extends HoeItem {
    * @param attackSpeed
    * @param settings
    */
-  public StalAlloysHoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-    super(material, attackDamage, attackSpeed, settings);
+  public StalAlloysHoeItem(ToolMaterial material, Settings settings) {
+    super(material, settings);
   }
 }

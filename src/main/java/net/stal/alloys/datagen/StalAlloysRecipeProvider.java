@@ -1,6 +1,7 @@
 package net.stal.alloys.datagen;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -10,6 +11,7 @@ import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.stal.alloys.StalAlloys;
 import net.stal.alloys.block.StalAlloysBlocks;
@@ -22,8 +24,8 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
   public static final List<ItemConvertible> TIN_SMELTABLES = List.of(StalAlloysItems.RAW_TIN, StalAlloysBlocks.TIN_ORE, StalAlloysBlocks.DEEPSLATE_TIN_ORE);
   public static final List<ItemConvertible> ZINC_SMELTABLES = List.of(StalAlloysItems.RAW_ZINC, StalAlloysBlocks.ZINC_ORE, StalAlloysBlocks.DEEPSLATE_ZINC_ORE);
 
-  public StalAlloysRecipeProvider(FabricDataOutput output) {
-    super(output);
+  public StalAlloysRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    super(output, registryLookup);
   }
 
   @Override

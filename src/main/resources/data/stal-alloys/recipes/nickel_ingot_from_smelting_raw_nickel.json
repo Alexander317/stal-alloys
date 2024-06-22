@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "stal-alloys:raw_nickel"
   },
-  "result": "stal-alloys:nickel_ingot"
+  "result": {
+    "id": "stal-alloys:nickel_ingot"
+  }
 }

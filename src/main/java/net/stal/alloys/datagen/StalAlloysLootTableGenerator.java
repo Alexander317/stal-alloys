@@ -1,15 +1,18 @@
 package net.stal.alloys.datagen;
 
+import java.util.concurrent.CompletableFuture;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryWrapper;
 import net.stal.alloys.block.StalAlloysBlocks;
 import net.stal.alloys.item.StalAlloysItems;
 
 public class StalAlloysLootTableGenerator extends FabricBlockLootTableProvider {
 
-  public StalAlloysLootTableGenerator(FabricDataOutput dataOutput) {
-    super(dataOutput);
+  public StalAlloysLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    super(dataOutput, registryLookup);
   }
 
   @Override

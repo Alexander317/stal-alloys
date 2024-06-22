@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:bronze_ingot"
-            ]
+            "items": "stal-alloys:bronze_ingot"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_bronze_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bronze_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
       "stal-alloys:bronze_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

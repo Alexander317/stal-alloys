@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:raw_carbon"
-            ]
+            "items": "stal-alloys:raw_carbon"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_raw_carbon",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_carbon"
     ]
   ],
   "rewards": {
     "recipes": [
       "stal-alloys:carbon_plate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

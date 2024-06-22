@@ -1,7 +1,5 @@
 package net.stal.alloys.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -19,8 +17,8 @@ public class StalAlloysBlocks {
   public static final Block STEEL_BLOCK = registerBlock(
     "steel_block", 
     new Block(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.METAL)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -32,8 +30,8 @@ public class StalAlloysBlocks {
     "nickel_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(3, 8),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
         .requiresTool()
@@ -44,8 +42,8 @@ public class StalAlloysBlocks {
     "deepslate_nickel_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -56,8 +54,8 @@ public class StalAlloysBlocks {
     "netherrack_nickel_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.NETHERRACK)
         .strength(0.4F)
         .requiresTool()
@@ -67,8 +65,8 @@ public class StalAlloysBlocks {
   public static final Block NICKEL_BLOCK = registerBlock(
     "nickel_block", 
     new Block(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.COPPER)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -78,8 +76,8 @@ public class StalAlloysBlocks {
   public static final Block CUT_NICKEL = registerBlock(
     "cut_nickel", 
     new Block(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.COPPER)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -89,8 +87,8 @@ public class StalAlloysBlocks {
   public static final Block CUT_NICKEL_SLAB = registerBlock(
     "cut_nickel_slab", 
     new SlabBlock(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.COPPER)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -101,8 +99,8 @@ public class StalAlloysBlocks {
     "cut_nickel_stairs",
     new StairsBlock(
       CUT_NICKEL.getDefaultState(), 
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.COPPER)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -114,8 +112,8 @@ public class StalAlloysBlocks {
     "chromium_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(3, 8),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
         .requiresTool()
@@ -126,8 +124,8 @@ public class StalAlloysBlocks {
     "deepslate_chromium_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -138,8 +136,8 @@ public class StalAlloysBlocks {
     "netherrack_chromium_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.NETHERRACK)
         .strength(0.4F)
         .requiresTool()
@@ -149,8 +147,8 @@ public class StalAlloysBlocks {
   public static final Block CHROMIUM_BLOCK = registerBlock(
     "chromium_block", 
     new Block(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.METAL)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -162,8 +160,8 @@ public class StalAlloysBlocks {
     "carbon_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(3, 8),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
         .requiresTool()
@@ -174,8 +172,8 @@ public class StalAlloysBlocks {
     "deepslate_carbon_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -187,8 +185,8 @@ public class StalAlloysBlocks {
     "zinc_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(3, 8),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
         .requiresTool()
@@ -199,8 +197,8 @@ public class StalAlloysBlocks {
     "deepslate_zinc_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -210,8 +208,8 @@ public class StalAlloysBlocks {
   public static final Block ZINC_BLOCK = registerBlock(
     "zinc_block", 
     new Block(
-      FabricBlockSettings
-        .copyOf(Blocks.IRON_BLOCK)
+      AbstractBlock.Settings
+        .copy(Blocks.IRON_BLOCK)
         .sounds(BlockSoundGroup.METAL)
         .strength(5.0F, 8.0F)
         .requiresTool()
@@ -223,8 +221,8 @@ public class StalAlloysBlocks {
     "tin_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(3, 8),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.STONE)
         .strength(3.0F, 8.0F)
         .requiresTool()
@@ -235,8 +233,8 @@ public class StalAlloysBlocks {
     "deepslate_tin_ore", 
     new ExperienceDroppingBlock(
       UniformIntProvider.create(4, 9),
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -247,8 +245,8 @@ public class StalAlloysBlocks {
   public static final Block ALLOY_SMELTER = registerBlock(
     "alloy_smelter",
     new AlloySmelterBlock(
-      FabricBlockSettings
-        .copyOf(Blocks.STONE)
+      AbstractBlock.Settings
+        .copy(Blocks.STONE)
         .sounds(BlockSoundGroup.DEEPSLATE)
         .strength(4.5F, 8.0F)
         .requiresTool()
@@ -263,7 +261,7 @@ public class StalAlloysBlocks {
   }
 
   private static Item registerBlockItem(String name, Block block) {
-    Item item = Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+    Item item = Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), new BlockItem(block, new Item.Settings()));
 
     return item;
   }

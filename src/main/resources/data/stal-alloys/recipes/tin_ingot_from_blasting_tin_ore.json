@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "stal-alloys:tin_ore"
   },
-  "result": "stal-alloys:tin_ingot"
+  "result": {
+    "id": "stal-alloys:tin_ingot"
+  }
 }

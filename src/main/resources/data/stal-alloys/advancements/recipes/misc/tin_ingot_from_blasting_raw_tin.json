@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "stal-alloys:raw_tin"
-            ]
+            "items": "stal-alloys:raw_tin"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_raw_tin",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_tin"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:tin_ingot_from_blasting_raw_tin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

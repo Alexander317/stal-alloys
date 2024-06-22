@@ -18,7 +18,7 @@
     "CCC"
   ],
   "result": {
-    "item": "stal-alloys:alloy_smelter"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "stal-alloys:alloy_smelter"
+  }
 }
