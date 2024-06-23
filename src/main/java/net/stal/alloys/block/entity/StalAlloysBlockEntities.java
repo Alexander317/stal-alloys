@@ -15,7 +15,7 @@ public class StalAlloysBlockEntities {
     
     ALLOY_SMELTER_ENTITY = Registry.register(
       Registries.BLOCK_ENTITY_TYPE, 
-      new Identifier(
+      Identifier.of(
         StalAlloys.MOD_ID, 
         "alloy_smelter"
       ), 

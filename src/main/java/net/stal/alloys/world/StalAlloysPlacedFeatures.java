@@ -50,7 +50,7 @@ public class StalAlloysPlacedFeatures {
   }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
-      return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(StalAlloys.MOD_ID, name));
+      return RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(StalAlloys.MOD_ID, name));
     }
 
     private static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,

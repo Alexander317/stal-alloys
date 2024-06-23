@@ -57,7 +57,7 @@ public class StalAlloysItems {
   public static final Item STAINLESS_STEEL_BOOTS = registerItem("stainless_steel_boots", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()));
 
   private static Item registerItem(String name, Item item) {
-    return Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), item);
+    return Registry.register(Registries.ITEM, Identifier.of(StalAlloys.MOD_ID, name), item);
   }
 
   public static void registerModItems() {

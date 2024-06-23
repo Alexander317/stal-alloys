@@ -12,7 +12,7 @@ import net.stal.alloys.block.entity.AlloySmelterEntity;
 
 public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler> {
 
-  private static final Identifier ALLOY_SMELTER_SCREEN_TEXTURE = new Identifier(StalAlloys.MOD_ID, "textures/gui/container/alloy_smelter.png");
+  private static final Identifier ALLOY_SMELTER_SCREEN_TEXTURE = Identifier.of(StalAlloys.MOD_ID, "textures/gui/container/alloy_smelter.png");
 
   public AlloySmelterScreen(AlloySmelterScreenHandler handler, PlayerInventory inventory, Text title) {
     super(handler, inventory, title);

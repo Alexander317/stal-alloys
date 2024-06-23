@@ -148,7 +148,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
 
     NbtCompound nbtCompound = nbt.getCompound(mRecipesUsedNBTKey);
     for (String string : nbtCompound.getKeys()) {
-      this.recipesUsed.put(new Identifier(string), nbtCompound.getInt(string));
+      this.recipesUsed.put(Identifier.of(string), nbtCompound.getInt(string));
     }
   }
 
@@ -213,8 +213,15 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
     }
     
     Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
-                                                .getRecipeManager()
-                                                .getFirstMatch(AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, inventory, entity.getWorld());
+      .getRecipeManager()
+      .getFirstMatch(
+        AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, 
+        new AlloySmelterRecipeInput(
+          inventory.getStack(AlloySmelterInventorySlots.FIRST.value), 
+          inventory.getStack(AlloySmelterInventorySlots.SECOND.value)
+        ), 
+        entity.getWorld()
+      );
     
     if (recipeFromInventoryOpt.isPresent()) {
       AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();
@@ -236,8 +243,15 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
     }
 
     Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
-                                                .getRecipeManager()
-                                                .getFirstMatch(AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, inventory, entity.getWorld());
+      .getRecipeManager()
+      .getFirstMatch(
+        AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, 
+        new AlloySmelterRecipeInput(
+          inventory.getStack(AlloySmelterInventorySlots.FIRST.value), 
+          inventory.getStack(AlloySmelterInventorySlots.SECOND.value)
+        ), 
+        entity.getWorld()
+      );
 
     if (recipeFromInventoryOpt.isPresent() && hasRecipe(entity)) {
       AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();

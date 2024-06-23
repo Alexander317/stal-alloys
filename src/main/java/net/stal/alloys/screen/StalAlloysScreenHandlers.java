@@ -17,6 +17,6 @@ public class StalAlloysScreenHandlers {
   public static void registerModScreenHandlers() {
     StalAlloys.LOGGER.debug("Registering screen handlers for " + StalAlloys.MOD_ID);
 
-    Registry.register(Registries.SCREEN_HANDLER, new Identifier(StalAlloys.MOD_ID, "alloy_smelter"), ALLOY_SMELTER_SCREEN_HANDLER);
+    Registry.register(Registries.SCREEN_HANDLER, Identifier.of(StalAlloys.MOD_ID, "alloy_smelter"), ALLOY_SMELTER_SCREEN_HANDLER);
   }
 }

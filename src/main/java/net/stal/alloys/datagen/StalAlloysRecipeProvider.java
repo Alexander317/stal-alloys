@@ -63,7 +63,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('C', Items.COBBLED_DEEPSLATE)
       .criterion(hasItem(Items.DEEPSLATE), conditionsFromItem(Items.DEEPSLATE))
       .criterion(hasItem(Items.FURNACE), conditionsFromItem(Items.FURNACE))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "alloy_smelter"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "alloy_smelter"));
 
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRASS_BOOTS, 1)
       .pattern("# #")
@@ -71,7 +71,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .pattern("   ")
       .input('#', StalAlloysItems.BRASS_INGOT)
       .criterion(hasItem(StalAlloysItems.BRASS_INGOT), conditionsFromItem(StalAlloysItems.BRASS_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "brass_boots"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "brass_boots"));
 
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRASS_CHESTPLATE, 1)
       .pattern("# #")
@@ -79,7 +79,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .pattern("###")
       .input('#', StalAlloysItems.BRASS_INGOT)
       .criterion(hasItem(StalAlloysItems.BRASS_INGOT), conditionsFromItem(StalAlloysItems.BRASS_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "brass_chestplate"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "brass_chestplate"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRASS_HELMET, 1)
       .pattern("###")
@@ -87,7 +87,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .pattern("   ")
       .input('#', StalAlloysItems.BRASS_INGOT)
       .criterion(hasItem(StalAlloysItems.BRASS_INGOT), conditionsFromItem(StalAlloysItems.BRASS_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "brass_helmet"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "brass_helmet"));
   
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRASS_LEGGINGS, 1)
       .pattern("###")
@@ -95,7 +95,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .pattern("# #")
       .input('#', StalAlloysItems.BRASS_INGOT)
       .criterion(hasItem(StalAlloysItems.BRASS_INGOT), conditionsFromItem(StalAlloysItems.BRASS_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "brass_leggings"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "brass_leggings"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.BRONZE_AXE, 1)
       .pattern("## ")
@@ -104,13 +104,13 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.BRONZE_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.BRONZE_INGOT), conditionsFromItem(StalAlloysItems.BRONZE_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "bronze_axe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "bronze_axe"));
     
     ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRONZE_DAGGER, 1)
       .input(StalAlloysItems.BRONZE_INGOT, 1)
       .input(Items.STICK, 1)
       .criterion(hasItem(StalAlloysItems.BRONZE_INGOT), conditionsFromItem(StalAlloysItems.BRONZE_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "bronze_dagger"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "bronze_dagger"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRONZE_DIRK, 1)
       .pattern("  #")
@@ -119,7 +119,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.BRONZE_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.BRONZE_INGOT), conditionsFromItem(StalAlloysItems.BRONZE_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "bronze_dirk"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "bronze_dirk"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.BRONZE_SWORD, 1)
       .pattern(" # ")
@@ -128,7 +128,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.BRONZE_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.BRONZE_INGOT), conditionsFromItem(StalAlloysItems.BRONZE_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "bronze_sword"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "bronze_sword"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, StalAlloysItems.CARBON_PLATE, 1)
       .pattern("   ")
@@ -136,7 +136,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .pattern("CCC")
       .input('C', StalAlloysItems.RAW_CARBON)
       .criterion(hasItem(StalAlloysItems.RAW_CARBON), conditionsFromItem(StalAlloysItems.RAW_CARBON))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "carbon_plate"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "carbon_plate"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.COPPER_AXE, 1)
       .pattern("## ")
@@ -145,7 +145,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', Items.COPPER_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_axe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "copper_axe"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.COPPER_HOE, 1)
       .pattern("## ")
@@ -154,7 +154,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', Items.COPPER_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_hoe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "copper_hoe"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.COPPER_PICKAXE, 1)
       .pattern("###")
@@ -163,7 +163,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', Items.COPPER_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_pickaxe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "copper_pickaxe"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.COPPER_SHOVEL, 1)
       .pattern(" # ")
@@ -172,7 +172,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', Items.COPPER_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_shovel"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "copper_shovel"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, StalAlloysItems.COPPER_SWORD, 1)
       .pattern(" # ")
@@ -181,7 +181,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', Items.COPPER_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "copper_sword"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "copper_sword"));
 
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_AXE, 1)
       .pattern("## ")
@@ -190,7 +190,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.STEEL_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_axe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "steel_axe"));
 
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_HOE, 1)
       .pattern("## ")
@@ -199,7 +199,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.STEEL_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_hoe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "steel_hoe"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_PICKAXE, 1)
       .pattern("###")
@@ -208,7 +208,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.STEEL_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_pickaxe"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "steel_pickaxe"));
     
     ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, StalAlloysItems.STEEL_SHOVEL, 1)
       .pattern(" # ")
@@ -217,7 +217,7 @@ public class StalAlloysRecipeProvider extends FabricRecipeProvider{
       .input('#', StalAlloysItems.STEEL_INGOT)
       .input('S', Items.STICK)
       .criterion(hasItem(StalAlloysItems.STEEL_INGOT), conditionsFromItem(StalAlloysItems.STEEL_INGOT))
-      .offerTo(exporter, new Identifier(StalAlloys.MOD_ID, "steel_shovel"));
+      .offerTo(exporter, Identifier.of(StalAlloys.MOD_ID, "steel_shovel"));
   }
   
 }

@@ -5,8 +5,6 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.recipe.RecipeSerializer;
-
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -17,7 +15,7 @@ import net.minecraft.util.collection.DefaultedList;
 
 import java.util.List;
 
-public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
+public class AlloySmelterRecipe implements Recipe<AlloySmelterRecipeInput> {
 
   private final ItemStack mOutput;
   private final int mCookingTime;
@@ -47,21 +45,21 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
   }
 
   @Override
-  public boolean matches(SimpleInventory inventory, World world) {
+  public boolean matches(AlloySmelterRecipeInput recipeInput, World world) {
     if (world.isClient()) return false;
 
-    boolean matchA = mRecipeItems.get(0).test(inventory.getStack(0 /* 0 is the first slot */)) && 
-                     mRecipeItems.get(1).test(inventory.getStack(1 /* 1 is the second slot */));
+    boolean matchA = mRecipeItems.get(0).test(recipeInput.getStackInSlot(0 /* 0 is the first slot */)) && 
+                     mRecipeItems.get(1).test(recipeInput.getStackInSlot(1 /* 1 is the second slot */));
 
     // This is here because the inputs are slot agnostic
-    boolean matchB = mRecipeItems.get(1).test(inventory.getStack(0 /* 0 is the first slot */)) && 
-                     mRecipeItems.get(0).test(inventory.getStack(1 /* 1 is the second slot */));
+    boolean matchB = mRecipeItems.get(1).test(recipeInput.getStackInSlot(0 /* 0 is the first slot */)) && 
+                     mRecipeItems.get(0).test(recipeInput.getStackInSlot(1 /* 1 is the second slot */));
 
     return matchA || matchB;
   }
 
   @Override
-  public ItemStack craft(SimpleInventory inventory, WrapperLookup lookup) {
+  public ItemStack craft(AlloySmelterRecipeInput recipeInput, WrapperLookup lookup) {
     return mOutput;
   }
 

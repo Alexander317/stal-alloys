@@ -42,13 +42,13 @@ public class StalAlloysArmorMaterials extends ArmorMaterials{
   private static RegistryEntry<ArmorMaterial> registerArmorMaterial(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
       return Registry.registerReference(
         Registries.ARMOR_MATERIAL, 
-        new Identifier(StalAlloys.MOD_ID, id), 
+        Identifier.of(StalAlloys.MOD_ID, id), 
         new ArmorMaterial(
           defense, 
           enchantability, 
           equipSound, 
           repairIngredient, 
-          List.of(new ArmorMaterial.Layer(new Identifier(StalAlloys.MOD_ID, id))), 
+          List.of(new ArmorMaterial.Layer(Identifier.of(StalAlloys.MOD_ID, id))), 
           toughness, 
           knockbackResistance
         )

@@ -16,7 +16,7 @@ import net.stal.alloys.block.StalAlloysBlocks;
 
 public class StalAlloysItemGroup {
 
-  public static final RegistryKey<ItemGroup> STAL_ALLOYS = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(StalAlloys.MOD_ID, "stal_alloys"));
+  public static final RegistryKey<ItemGroup> STAL_ALLOYS = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(StalAlloys.MOD_ID, "stal_alloys"));
 
   public static final ItemGroup STAL_ALLOYS_ITEM_GROUP = Registry.register(
     Registries.ITEM_GROUP, 

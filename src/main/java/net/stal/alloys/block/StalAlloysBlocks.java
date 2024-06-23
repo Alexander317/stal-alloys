@@ -257,11 +257,11 @@ public class StalAlloysBlocks {
   private static Block registerBlock(String name, Block block) {
     registerBlockItem(name, block);
 
-    return Registry.register(Registries.BLOCK, new Identifier(StalAlloys.MOD_ID, name), block);
+    return Registry.register(Registries.BLOCK, Identifier.of(StalAlloys.MOD_ID, name), block);
   }
 
   private static Item registerBlockItem(String name, Block block) {
-    Item item = Registry.register(Registries.ITEM, new Identifier(StalAlloys.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+    Item item = Registry.register(Registries.ITEM, Identifier.of(StalAlloys.MOD_ID, name), new BlockItem(block, new Item.Settings()));
 
     return item;
   }
