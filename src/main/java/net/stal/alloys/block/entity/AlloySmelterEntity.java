@@ -214,7 +214,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
     
     Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
                                                 .getRecipeManager()
-                                                .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
+                                                .getFirstMatch(AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, inventory, entity.getWorld());
     
     if (recipeFromInventoryOpt.isPresent()) {
       AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();
@@ -237,7 +237,7 @@ public class AlloySmelterEntity extends BlockEntity implements NamedScreenHandle
 
     Optional<RecipeEntry<AlloySmelterRecipe>> recipeFromInventoryOpt = entity.getWorld()
                                                 .getRecipeManager()
-                                                .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
+                                                .getFirstMatch(AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE, inventory, entity.getWorld());
 
     if (recipeFromInventoryOpt.isPresent() && hasRecipe(entity)) {
       AlloySmelterRecipe recipe = recipeFromInventoryOpt.get().value();

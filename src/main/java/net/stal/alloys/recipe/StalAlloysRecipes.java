@@ -12,15 +12,15 @@ public class StalAlloysRecipes {
     // Alloy Smelter Serializer
     Registry.register(
       Registries.RECIPE_SERIALIZER, 
-      new Identifier(StalAlloys.MOD_ID, AlloySmelterRecipe.Serializer.ID), 
-      AlloySmelterRecipe.Serializer.INSTANCE
+      new Identifier(StalAlloys.MOD_ID, AlloySmelterRecipe.AlloySmelterRecipeSerializer.ID), 
+      AlloySmelterRecipe.AlloySmelterRecipeSerializer.INSTANCE
     );
 
     // Alloy Smelter Type
     Registry.register(
       Registries.RECIPE_TYPE, 
-      new Identifier(StalAlloys.MOD_ID, AlloySmelterRecipe.Type.ID), 
-      AlloySmelterRecipe.Type.INSTANCE
+      new Identifier(StalAlloys.MOD_ID, AlloySmelterRecipe.AlloySmelterRecipeType.ID), 
+      AlloySmelterRecipe.AlloySmelterRecipeType.INSTANCE
     );
   }
 }

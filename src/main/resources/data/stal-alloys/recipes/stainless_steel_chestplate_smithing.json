@@ -10,6 +10,6 @@
     "item": "stal-alloys:stainless_steel_ingot"
   },
   "result": {
-    "item": "stal-alloys:stainless_steel_chestplate"
+    "id": "stal-alloys:stainless_steel_chestplate"
   }
 }
