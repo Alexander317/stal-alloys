@@ -96,15 +96,15 @@
   "stal-alloys:advancement_alloys_steel_title_text" : "Beyond Iron",
   "stal-alloys:advancement_alloys_steel_description_text" : "Smelt Carbon Plates and Iron into Steel",
   "stal-alloys:advancement_alloys_stainless_steel_title_text" : "The Beginning of the Endgame",
-  "stal-alloys:advancement_alloys_stainless_steel_description_text" : "Smelt Chromium and Steel into Stainless Steel",
+  "stal-alloys:advancement_alloys_stainless_steel_description_text" : "Smelt Chromium and Steel into Stainless Steel. Must smelt Chromium, Steel, and Stainless Steel Ingots to complete this task.",
   "stal-alloys:advancement_copper_tools_title_text" : "Wasn't This Here the Whole Time?",
-  "stal-alloys:advancement_copper_tools_description_text" : "Use Copper Ingots to craft every Copper tool",
+  "stal-alloys:advancement_copper_tools_description_text" : "Use Copper Ingots to craft every Copper tool: Sword, Pickaxe, Axe, Shovel, Hoe",
   "stal-alloys:advancement_steel_tools_title_text" : "This Stuff is Tough",
-  "stal-alloys:advancement_steel_tools_description_text" : "Use Steel Ingots to craft every Steel tool",
+  "stal-alloys:advancement_steel_tools_description_text" : "Use Steel Ingots to craft every Steel tool: Pickaxe, Axe, Shovel, Hoe.",
   "stal-alloys:advancement_bronze_weapons_title_text" : "Bolster Your Arsenal",
-  "stal-alloys:advancement_bronze_weapons_description_text" : "Use Bronze Ingots to craft every Bronze weapon",
+  "stal-alloys:advancement_bronze_weapons_description_text" : "Use Bronze Ingots to craft every Bronze weapon: Sword, Axe, Dirk, and Dagger.",
   "stal-alloys:advancement_brass_armor_title_text" : "Better Than Gold?",
   "stal-alloys:advancement_brass_armor_description_text" : "Use Brass Ingots to craft Brass Armor",
   "stal-alloys:advancement_stainless_steel_armor_title_text" : "I'm Happy You Made it This Far",
-  "stal-alloys:advancement_stainless_steel_armor_description_text" : "Use the Smithing Table to Craft Stainless Steel Armor"
+  "stal-alloys:advancement_stainless_steel_armor_description_text" : "Use the Smithing Table to Craft Stainless Steel Armor. Requires the Upgrade Smithing Template."
 }
