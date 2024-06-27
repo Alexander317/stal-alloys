@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.recipe.RecipeSerializer;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -66,6 +66,13 @@ public class AlloySmelterRecipe implements Recipe<AlloySmelterRecipeInput> {
   @Override
   public boolean fits(int width, int height) {
     return true;
+  }
+
+  @Override
+  public DefaultedList<Ingredient> getIngredients() {
+    DefaultedList<Ingredient> list = DefaultedList.ofSize(this.mRecipeItems.size());
+    list.addAll(mRecipeItems);
+    return list;
   }
 
   @Override
