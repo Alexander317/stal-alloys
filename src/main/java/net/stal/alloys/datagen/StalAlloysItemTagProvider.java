@@ -27,6 +27,63 @@ public class StalAlloysItemTagProvider extends FabricTagProvider.ItemTagProvider
         StalAlloysItems.BRASS_LEGGINGS,
         StalAlloysItems.BRASS_BOOTS
       );
+
+    getOrCreateTagBuilder(ItemTags.SWORDS)
+      .add(
+        StalAlloysItems.BRONZE_SWORD,
+        StalAlloysItems.BRONZE_DIRK,
+        StalAlloysItems.BRONZE_DAGGER,
+        StalAlloysItems.COPPER_SWORD
+      );
+    
+    getOrCreateTagBuilder(ItemTags.AXES)
+      .add(
+        StalAlloysItems.STEEL_AXE,
+        StalAlloysItems.BRONZE_AXE,
+        StalAlloysItems.COPPER_AXE
+      );
+    
+    getOrCreateTagBuilder(ItemTags.PICKAXES)
+      .add(
+        StalAlloysItems.STEEL_PICKAXE,
+        StalAlloysItems.COPPER_PICKAXE
+      );
+    
+    getOrCreateTagBuilder(ItemTags.SHOVELS)
+      .add(
+        StalAlloysItems.STEEL_SHOVEL,
+        StalAlloysItems.COPPER_SHOVEL
+      );
+    
+    getOrCreateTagBuilder(ItemTags.HOES)
+      .add(
+        StalAlloysItems.STEEL_HOE,
+        StalAlloysItems.COPPER_HOE
+      );
+
+    getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+      .add(
+        StalAlloysItems.STAINLESS_STEEL_HELMET,
+        StalAlloysItems.BRASS_HELMET
+      );
+
+    getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+      .add(
+        StalAlloysItems.STAINLESS_STEEL_CHESTPLATE,
+        StalAlloysItems.BRASS_CHESTPLATE
+      );
+
+    getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+      .add(
+        StalAlloysItems.STAINLESS_STEEL_LEGGINGS,
+        StalAlloysItems.BRASS_LEGGINGS
+      );
+
+    getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+      .add(
+        StalAlloysItems.STAINLESS_STEEL_BOOTS,
+        StalAlloysItems.BRASS_BOOTS
+      );
   }
   
 }

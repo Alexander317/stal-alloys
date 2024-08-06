@@ -44,17 +44,17 @@ public class StalAlloysItems {
   public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ShovelItem(StalAlloysToolMaterials.STEEL_ALLOY, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(StalAlloysToolMaterials.STEEL_ALLOY, 1.5F, -3.0F))));
   public static final Item STEEL_HOE = registerItem("steel_hoe", new StalAlloysHoeItem(StalAlloysToolMaterials.STEEL_ALLOY, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(StalAlloysToolMaterials.STEEL_ALLOY, 2, -1.0F))));
 
-  public static final Item BRASS_HELMET = registerItem("brass_helmet", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.HELMET, new Item.Settings()));
-  public static final Item BRASS_CHESTPLATE = registerItem("brass_chestplate", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
-  public static final Item BRASS_LEGGINGS = registerItem("brass_leggings", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.LEGGINGS, new Item.Settings()));
-  public static final Item BRASS_BOOTS = registerItem("brass_boots", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.BOOTS, new Item.Settings()));
+  public static final Item BRASS_HELMET = registerItem("brass_helmet", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
+  public static final Item BRASS_CHESTPLATE = registerItem("brass_chestplate", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(7))));
+  public static final Item BRASS_LEGGINGS = registerItem("brass_leggings", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(7))));
+  public static final Item BRASS_BOOTS = registerItem("brass_boots", new ArmorItem(StalAlloysArmorMaterials.BRASS, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(7))));
   
   public static final Item STAINLESS_STEEL_INGOT = registerItem("stainless_steel_ingot", new Item(new Item.Settings()));
 
-  public static final Item STAINLESS_STEEL_HELMET = registerItem("stainless_steel_helmet", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.HELMET, new Item.Settings()));
-  public static final Item STAINLESS_STEEL_CHESTPLATE = registerItem("stainless_steel_chestplate", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
-  public static final Item STAINLESS_STEEL_LEGGINGS = registerItem("stainless_steel_leggings", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()));
-  public static final Item STAINLESS_STEEL_BOOTS = registerItem("stainless_steel_boots", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()));
+  public static final Item STAINLESS_STEEL_HELMET = registerItem("stainless_steel_helmet", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.HELMET, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37))));
+  public static final Item STAINLESS_STEEL_CHESTPLATE = registerItem("stainless_steel_chestplate", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37))));
+  public static final Item STAINLESS_STEEL_LEGGINGS = registerItem("stainless_steel_leggings", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37))));
+  public static final Item STAINLESS_STEEL_BOOTS = registerItem("stainless_steel_boots", new ArmorItem(StalAlloysArmorMaterials.STAINLESS_STEEL, ArmorItem.Type.BOOTS, new Item.Settings().fireproof().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37))));
 
   private static Item registerItem(String name, Item item) {
     return Registry.register(Registries.ITEM, Identifier.of(StalAlloys.MOD_ID, name), item);
